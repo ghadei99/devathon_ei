@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-07-14T16:15:10 IST" name="Default suite" finished-at="2023-07-14T16:20:08 IST" duration-ms="297507">
+    <groups>
+    </groups>
+    <test started-at="2023-07-14T16:15:10 IST" name="Default test" finished-at="2023-07-14T16:20:08 IST" duration-ms="297507">
+      <class name="androids.Mindspark">
+        <test-method signature="teacherStudentWorkhseet()[pri:0, instance:androids.Mindspark@5890e879]" started-at="2023-07-14T16:15:10 IST" name="teacherStudentWorkhseet" finished-at="2023-07-14T16:20:08 IST" duration-ms="297484" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teacherStudentWorkhseet -->
+      </class> <!-- androids.Mindspark -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

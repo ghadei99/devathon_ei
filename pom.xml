@@ -14,16 +14,5 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.appium/mitmproxy-java -->
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>mitmproxy-java</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>testscripts</groupId>
-			<artifactId>wmmobileapp</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 </project>

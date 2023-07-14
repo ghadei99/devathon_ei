@@ -25,12 +25,9 @@ import io.appium.java_client.android.StartsActivity;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.offset.PointOption;
-//
-//import com.xk72.charles.Charles;
-//import com.xk72.charles.Message;
-//import com.xk72.charles.Proxy;
-//import com.xk72.charles.ProxyListener;
-//
+import pages.LoginNativePage;
+import pages.LoginScreen;
+import pages.LoginWebPage;
 
 //optionIndex0
 //optionIndex1
@@ -53,10 +50,12 @@ public class Samsungs {
 	static int numberOfQuestion = 6;
 
 	public static void main(String[] args) throws Exception {
-		setup();
-		assignHomeWork(driver);
+//		setup();
+//		assignHomeWork(driver);
+//		assing(driver);
 		setNativeAgain();
 		nativeApplication(driver);
+//		nativeApp(driver);
 	}
 
 	public static void setNativeAgain() throws MalformedURLException {
@@ -94,13 +93,18 @@ public class Samsungs {
 
 	public static void assignHomeWork(AppiumDriver<MobileElement> driver) throws InterruptedException {
 		Actions action = new Actions(driver);
-
+		LoginWebPage login = new LoginWebPage(driver);
+		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.get("https://stglearn.mindspark.in/Student/onboard/login/en");
-		driver.findElement(By.id("userName")).sendKeys(teacherUserName);
-		driver.findElement(By.id("nextButton")).click();
+//		driver.findElement(By.id("userName")).sendKeys(teacherUserName);
+//		driver.findElement(By.id("nextButton")).click();
+		Thread.sleep(1000);
+//		login.inp_userName().sendKeys(teacherUserName);
+//		login.btn_nextButton().click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("textPassword")).sendKeys(teacherPassword);
+//		login.inp_userName().sendKeys(teacherPassword);
+//		driver.findElement(By.id("textPassword")).sendKeys(teacherPassword);
 		driver.findElement(By.id("loginBtn")).click();
 		Thread.sleep(15000);
 
@@ -148,6 +152,20 @@ public class Samsungs {
 				+ "']//following-sibling::div//div[contains(@class,'correctAnswer')]")).getAttribute("id");
 	}
 
+	public static void nativeApp(AppiumDriver<MobileElement> driver) {
+		TouchAction action;
+		action = new TouchAction(driver);
+//		LoginScreen login = new LoginNativePage(driver);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//android.widget.Button[@content-desc='onBoardingFooterBtn']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@content-desc='onBoardingFooterBtn']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@content-desc='onBoardingFooterBtn']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@content-desc='onBoardingFooterBtn']")).click();
+//		login.inp_userName().sendKeys(studentUser);
+		action.tap(PointOption.point(500, 1200)).perform();
+		
+	}
 	public static void nativeApplication(AppiumDriver<MobileElement> driver) throws Exception {
 
 		try {
