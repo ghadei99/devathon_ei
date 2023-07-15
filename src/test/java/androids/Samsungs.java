@@ -218,10 +218,11 @@ public class Samsungs {
 			for (int i = 0; i < numberOfQuestion; i++) {
 				scrolldown();
 				scrolldown();
-				scrolldown();
+				scrolldown();			
+
 				getXpath(
-						"//android.view.ViewGroup[@content-desc='SVGImageBackgroundQnAScreen']/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup["
-								+ (Integer.parseInt(answers.get(i).split("Index")[1]) + 1) + "]")
+						"//android.view.ViewGroup[@content-desc=\"SVGImageBackgroundQnAScreen\"]/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup["
+								+ (Integer.parseInt(answers.get(i).split("Index")[1]) + 1) + "]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]")
 						.click();
 				Thread.sleep(1000);
 				getXpath(

@@ -6,10 +6,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import base.BaseClass;
+import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import pages.LoginNativePage;
@@ -18,12 +20,15 @@ import setup.TestSetup;
 
 public class Mindspark extends BaseClass {
 
-	@Test
+	@Test(description = "Testing Mobile app")
 	public void teacherStudentWorkhseet() throws Exception {
+		startTest(method.getName(), "Testing Mobile app");
 //		assigningWorksheet();
 //		answeringWorksheet();
 		TestSetup.setupChromeBS();
 		assigningWorksheet();
+//		TestSetup.setUpMindsparkNativeBS();
+		answeringWorksheet();
 	}
 	
 	public void assigningWorksheet() throws InterruptedException, MalformedURLException {
@@ -71,25 +76,24 @@ public class Mindspark extends BaseClass {
 	}
 
 	public void answeringWorksheet() throws Exception {
-		TestSetup.setUpMindsparkNative();
 		LoginNativePage login = new LoginNativePage(driver);
-		
-		try {
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+//		try {
 			TouchAction action;
-			driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-			driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
-			action = new TouchAction(driver);
+//			remoteDriver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+//			remoteDriver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
 			login.btn_onboardingNext.click();
 			login.btn_onboardingNext.click();
 			login.btn_onboardingNext.click();
 			login.btn_onboardingNext.click();
 			login.inp_userName.sendKeys(studentUser);
+			action = new TouchAction((PerformsTouchActions) driver);
 			action.tap(PointOption.point(500, 1200)).perform();
 			login.inp_password.sendKeys("12345");
 
 			action.tap(PointOption.point(500, 2050)).perform();
+			Thread.sleep(1000);
 			login.btn_worksheet.click();
-
 			Thread.sleep(2000);
 			login.inp_worksheetSearchBar.sendKeys(worksheetName);
 			login.btn_searchSearchBar.click();
@@ -112,16 +116,15 @@ public class Mindspark extends BaseClass {
 
 			}
 			Thread.sleep(2000);
-			System.out.println("answered!");
-
 			getXpath(
 					"//android.view.ViewGroup[@content-desc='SVGImageBackgroundQnAScreen']/android.view.ViewGroup[2]/android.view.ViewGroup[1]")
 					.click();
 
 			getXpath("//android.view.ViewGroup[@content-desc=\"CustomModal\"]/android.view.ViewGroup[2]").click();
 
-		} catch (Exception e) {
-			throw new Exception();
-		}
+//		} catch (Exception e) {
+//			System.out.print(e.getStackTrace());
+//			throw new Exception();
+//		}
 	}
 }

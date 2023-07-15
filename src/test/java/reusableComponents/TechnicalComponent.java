@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.AppiumDriver;
@@ -16,6 +18,8 @@ import io.appium.java_client.android.AndroidElement;
 public class TechnicalComponent {
 //	public static AppiumDriver<MobileElement> driver;
 	public static AndroidDriver<MobileElement> driver;
+//	public static RemoteWebDriver remoteDriver;
+//	public static RemoteWebDriver driver;
 	public static Actions action;
 	public static WebDriverWait wait;
 	protected static List<String> answers = new ArrayList<String>();
@@ -26,7 +30,7 @@ public class TechnicalComponent {
 		answers.add("optionIndex1");
 	}
 
-	public static MobileElement getXpath(String val) {
+	public static WebElement getXpath(String val) {
 		return driver.findElement(By.xpath(val));
 	}
 
