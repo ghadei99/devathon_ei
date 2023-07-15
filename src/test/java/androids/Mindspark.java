@@ -22,18 +22,16 @@ public class Mindspark extends BaseClass {
 
 	@Test(description = "Testing Mobile app")
 	public void teacherStudentWorkhseet() throws Exception {
-		startTest(method.getName(), "Testing Mobile app");
 //		assigningWorksheet();
 //		answeringWorksheet();
-		TestSetup.setupChromeBS();
+		TestSetup.setupChrome();
 		assigningWorksheet();
-//		TestSetup.setUpMindsparkNativeBS();
+		TestSetup.setUpMindsparkNative();
 		answeringWorksheet();
 	}
 	
 	public void assigningWorksheet() throws InterruptedException, MalformedURLException {
 //		TestSetup.setupChrome();
-		TestSetup.setupChromeBS();
 		action = new Actions(driver);
 		LoginWebPage login = new LoginWebPage(driver);
 		wait = new WebDriverWait(driver, 30);
@@ -76,6 +74,7 @@ public class Mindspark extends BaseClass {
 	}
 
 	public void answeringWorksheet() throws Exception {
+		Thread.sleep(3000);
 		LoginNativePage login = new LoginNativePage(driver);
 		JavascriptExecutor j = (JavascriptExecutor) driver;
 //		try {
@@ -94,7 +93,7 @@ public class Mindspark extends BaseClass {
 			action.tap(PointOption.point(500, 2050)).perform();
 			Thread.sleep(1000);
 			login.btn_worksheet.click();
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			login.inp_worksheetSearchBar.sendKeys(worksheetName);
 			login.btn_searchSearchBar.click();
 			Thread.sleep(1000);
